@@ -1,0 +1,60 @@
+# Ignore dependency directories
+node_modules/
+**/node_modules/
+
+# Ignore Next.js build directories
+.next/
+**/.next/
+
+# Ignore TypeScript/JavaScript build outputs
+dist/
+**/dist/
+build/
+**/build/
+
+# Ignore environment config files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env*
+
+# Ignore log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ignore OS files and system artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore IDE configs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore local temporary or test configurations
+coverage/
+.nyc_output/
+.npm/
+
+# Ignore system control/git files in Docker context
+.git/
+.github/
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose*
+
+# Ignore execution scripts and assets
+dev.sh
+ci/
+VedaAI - Hiring Assignment/

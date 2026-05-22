@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: veda-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: ai-assessment
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: veda-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  veda-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: veda-backend
+    ports:
+      - "4000:4000"
+    command: pm2-runtime pm2.config.js --only veda-backend
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MONGODB_URI=mongodb://mongodb:27017/ai-assessment
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - mongodb
+      - redis
+
+  veda-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: veda-frontend
+    ports:
+      - "3000:3000"
+    command: pm2-runtime pm2.config.js --only veda-frontend
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MONGODB_URI=mongodb://mongodb:27017/ai-assessment
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - veda-backend
+
+volumes:
+  mongo_data:
+  redis_data:
