@@ -57,6 +57,7 @@ ai-assessment-creator/
 |-- docker-compose.yml       # Multi-container production configuration
 |-- Dockerfile               # Multi-stage consolidated build
 |-- dev.sh                   # Local dev orchestrator (runs infra in Docker, frontend locally)
+|-- clean.js                 # Sweeper utility script to clean layout annotations
 |-- pm2.config.js            # PM2 cluster configuration for bare-metal deployment
 |-- .dockerignore            # Docker build context exclusions
 |-- .gitignore               # Repository source control ignore rules
@@ -88,6 +89,12 @@ ai-assessment-creator/
     |   |   |   |-- page.tsx           # Assignment list dashboard
     |   |   |   +-- create/page.tsx    # Assignment creation form
     |   |   +-- output/[id]/page.tsx   # Generated question paper view and PDF export
+    |   |-- components/                # Reusable UI component library
+    |   |   |-- EmptyAssignments.tsx   # Premium responsive empty dashboard state
+    |   |   |-- MobileHeader.tsx       # Sticky top navigation bar for mobile layout
+    |   |   |-- Navbar.tsx             # Main desktop navigation header
+    |   |   |-- SearchBar.tsx          # Interactive dashboard query filter input
+    |   |   +-- Sidebar.tsx            # Left collapsable sidebar navigation
     |   |-- store/
     |   |   +-- assessmentStore.ts     # Zustand global state (job status, paper result)
     |   |-- lib/
