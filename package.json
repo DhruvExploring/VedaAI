@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "clean": "node clean.js"
+  },
+  "dependencies": {
+    "lucide-react": "^1.16.0"
+  }
+}
