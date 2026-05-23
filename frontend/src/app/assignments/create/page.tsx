@@ -941,7 +941,7 @@ export default function CreateAssignmentPage() {
                         
                         <div className="flex flex-col gap-4 w-[317px] max-w-full">
                           {fields.map((field, index) => (
-                            <div key={field.id} className="box-border flex flex-col justify-center items-end p-3 gap-3 w-[317px] h-[138px] bg-white border border-[#EBEBEB] rounded-[24px] relative shadow-sm max-w-full">
+                            <div key={field.id} className="box-border flex flex-col justify-center items-end p-3 gap-3 w-[317px] min-h-[138px] h-auto bg-white border border-[#EBEBEB] rounded-[24px] relative shadow-sm max-w-full">
                               {/* Top Row: Dropdown select container */}
                               <div className="flex flex-row justify-between items-center p-0 gap-3 w-[293px] h-5 relative max-w-full">
                                 {!isDesktop && (
@@ -973,9 +973,9 @@ export default function CreateAssignmentPage() {
                               </div>
 
                               {/* Bottom Row: Counters block */}
-                              <div className="flex flex-row items-start p-2 gap-3 w-[293px] h-[82px] bg-[#F0F0F0] rounded-[24px] max-w-full">
+                              <div className="flex flex-row items-start p-2 gap-3 w-full max-w-[293px] h-[82px] bg-[#F0F0F0] rounded-[24px]">
                                 {/* Question Count Column */}
-                                <div className="flex flex-col items-center p-0 gap-2 w-[132.5px] h-[66px] flex-none grow">
+                                <div className="flex flex-col items-center p-0 gap-2 flex-1 w-full max-w-[132.5px] h-[66px] grow">
                                   <span 
                                     className="text-[14px] font-medium leading-[140%] text-[#303030] tracking-[-0.04em] text-center"
                                     style={{ fontFamily: 'Bricolage Grotesque' }}
@@ -983,7 +983,7 @@ export default function CreateAssignmentPage() {
                                     No. of Questions
                                   </span>
                                   {/* White counter pill */}
-                                  <div className="flex flex-row justify-between items-center py-1.5 px-2 w-[132.5px] h-[38px] bg-white rounded-[100px] shadow-sm">
+                                  <div className="flex flex-row justify-between items-center py-1.5 px-2 w-full h-[38px] bg-white rounded-[100px] shadow-sm">
                                     <button
                                       type="button"
                                       onClick={() => handleDecrement(index, 'count')}
@@ -1008,7 +1008,7 @@ export default function CreateAssignmentPage() {
                                 </div>
 
                                 {/* Question Marks Column */}
-                                <div className="flex flex-col items-center p-0 gap-2 w-[132.5px] h-[66px] flex-none grow">
+                                <div className="flex flex-col items-center p-0 gap-2 flex-1 w-full max-w-[132.5px] h-[66px] grow">
                                   <span 
                                     className="text-[14px] font-medium leading-[140%] text-[#303030] tracking-[-0.04em] text-center"
                                     style={{ fontFamily: 'Bricolage Grotesque' }}
@@ -1016,7 +1016,7 @@ export default function CreateAssignmentPage() {
                                     Marks
                                   </span>
                                   {/* White counter pill */}
-                                  <div className="flex flex-row justify-between items-center py-1.5 px-2 w-[132.5px] h-[38px] bg-white rounded-[100px] shadow-sm">
+                                  <div className="flex flex-row justify-between items-center py-1.5 px-2 w-full h-[38px] bg-white rounded-[100px] shadow-sm">
                                     <button
                                       type="button"
                                       onClick={() => handleDecrement(index, 'marks')}
